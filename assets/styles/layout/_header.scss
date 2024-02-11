@@ -21,7 +21,6 @@
 }
 
 
-
 .header_btns {
     display: flex;
     justify-content: flex-end;
@@ -101,11 +100,20 @@
 
     }
 
-    .night_mode_btn{
+    .menu_open_company_detail{
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+        display: none;
+        padding-right: 15px;
+    }
+
+    .menu_open_night{
         width: 40px;
         height: 40px;
         background-color: #f3f6f9;
         border-radius: 12px;
+        display: none;
 
         .moon-img{
          margin-left: 9px;
@@ -121,6 +129,12 @@
 
 @media only screen and (max-width: 560px) {
     
+    .menu_open_company_detail{
+        display: block !important;
+    }
+    .menu_open_night{
+        display: block !important;
+    }
     .nsp_search_input{
     width: 100% !important;
     }
@@ -150,8 +164,8 @@
         align-items: center;
     }
 
-    .menu_open {
-        display: inline-block !important;
+    .header-logo .menu_open {
+        display: inline-block ;
         width: 25px;
         height: 34px;
         margin-top: 5px;
@@ -159,7 +173,15 @@
         cursor: pointer;
         background-color: transparent;
     }
-
+    .header-logo .menu_open_night {
+        display: none ;
+        width: 25px;
+        height: 34px;
+        margin-top: 5px;
+        margin-right: 20px;
+        cursor: pointer;
+        background-color: transparent;
+    }
 
     // Sidebar start
 
@@ -272,6 +294,8 @@ padding: 0 9px;
         width: 14px;
     }
 }
+
+
 
 
 
@@ -533,9 +557,6 @@ main{
             }
 
 
-
-  
-
     }
 
    
@@ -544,9 +565,12 @@ main{
 }
 
 @media only screen and (max-width: 560px) {
-
     main .new_search_panel .nsp_top li:after {
         margin: 0 20px;
+    }
+
+    .login-agreement-text{
+        display: none;
     }
 
 .nsp_search{
@@ -617,3 +641,9 @@ background-position: 100%;
 }
 
 
+.tab__item{
+    display: none;
+    &.active{
+        display: block;
+    }
+}

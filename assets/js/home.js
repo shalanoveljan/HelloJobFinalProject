@@ -10,6 +10,7 @@ filterClearButton.addEventListener('click', function() {
         checkbox.checked = false;
     });
 });
+
 const MultiSearch=document.getElementById('multisearch');
 const searchbar=document.querySelector('.nsb_searchbar_filter');
 const topsearchbar=document.querySelector('.nsb_searchbar_top')
@@ -25,14 +26,18 @@ search_closebutton.addEventListener('click',function(){
     searchbar.style.display="none";
 topsearchbar.style.display="flex";
 })
+
+
 const baglamaButonu = document.querySelector('.baglama-btn');
 const menuacButonu = document.querySelector('.menu_open');
 const sidebar = document.querySelector('.sidebar');
 
-menuacButonu.addEventListener('click', function (e) {
+  menuacButonu.addEventListener('click', function (e) {
+   console.log(e);
     e.preventDefault()
     sidebar.style.display = 'block';
-});
+}
+  )
 baglamaButonu.addEventListener('click', function (e) {
     e.preventDefault()
     sidebar.style.display = 'none';
@@ -182,4 +187,22 @@ $('.new-categories-slider').slick({
       }
      }
 
+
+    //  Modal start
+
+    var registermodal=document.querySelector('.modal-content-register')
+    var loginmodal=document.querySelector('.modal-content')
+    var registerbtn=document.querySelector('.register-btn')
+    var loginbtn=document.querySelector('.loginac')
+
+    registerbtn.addEventListener("click",function (e) {
+      e.preventDefault()
+      registermodal.style.display="flex"
+      loginmodal.style.display="none"
+    })
+    loginbtn.addEventListener("click",function (e) {
+      e.preventDefault()
+      registermodal.style.display="none"
+      loginmodal.style.display="flex"
+    })
 
