@@ -49,7 +49,7 @@ $blue:#2196F3;
 
 
 
-.resumes-course {
+.resumes {
   font-family: $font-family-inter!important;
   color: $dark-blue;
   margin: 40px 0 80px 0;
@@ -58,8 +58,12 @@ $blue:#2196F3;
 
   a.cv_count {
     border-bottom: 1px solid black;
+    margin-left: 1rem;
   }
 
+  .cv_count{
+    margin-bottom: 0 !important;
+  }
   .cv_count {
     font-size: 14px;
     font-weight: 500;
@@ -71,7 +75,9 @@ $blue:#2196F3;
     @media (max-width: 767px) {
       margin-top: 14px;
     }
+
   }
+
 
   &__title {
     font-weight: 700;
@@ -246,7 +252,7 @@ $blue:#2196F3;
       }
     }
 
-    .resumes-course__title {
+    .resumes__title {
       margin-bottom: 0;
     }
 
@@ -255,7 +261,7 @@ $blue:#2196F3;
     }
   }
 
-  .resumes-course__filters__item--profession {
+  .resumes__filters__item--profession {
     padding-bottom: 16px;
   }
 
@@ -312,8 +318,12 @@ $blue:#2196F3;
           &:checked + label {
             &:after {
               background-color: $blue;
-              background-image: url("/content/assets/images/white-check.svg");
+              background-image: url("https://www.hellojob.az/content/assets/images/white-check.svg");
             }
+          }
+          &:after {
+            background-color: $blue;
+            background-image: url("https://www.hellojob.az/content/assets/images/white-check.svg");
           }
         }
 
@@ -691,4 +701,168 @@ $blue:#2196F3;
       }
     }
   }
+}
+
+.similar-resume{
+  margin-top: 20px !important;
+}
+
+.resumes .similar-resume .resume__block {
+  margin-bottom: 24px;
+  height: calc(100% - 24px);
+  position: relative;
+  display: block;
+}
+.courses .resume__block {
+  padding: 30px;
+}
+
+.resume__block {
+  border: 1px solid #e2e9f2;
+  border-radius: 8px;
+  background-color: white;
+  color: #061e40;
+  word-break: break-word;
+}
+
+.courses .resume__header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+}
+.courses .resume__header__img {
+  border: 0;
+}
+.resume__header__img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 30px;
+  
+}
+.resume__header__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.similar-resume .resume__header .d-flex {
+  flex: 1;
+}
+.courses .resume__header__desc {
+  margin-bottom: 26px;
+}
+.similar-resume .resume__header__desc {
+  margin-right: 30px;
+}
+.courses .resume__header__name {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+  margin-bottom: 12px;
+}
+.courses .resume__premium--scholarship {
+  background: #EDE9FF;
+  color: #4361EE;
+}
+.courses .resume__premium {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 0 0 0 6px;
+  margin: 0;
+  min-width: 104px;
+}
+.resume__premium {
+  padding: 4px 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.courses .resume__premium--scholarship img {
+  filter: brightness(0) saturate(100%) invert(29%) sepia(62%) saturate(2308%) hue-rotate(219deg) brightness(98%) contrast(91%);
+}
+.resume__premium p {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 16px;
+  margin-bottom: 0;
+  color: #000;
+}
+.courses .resume__header__speciality {
+  margin-bottom: 0 !important;
+  font-size: 16px !important;
+  line-height: 20px !important;
+
+}
+.resume__block p {
+  font-weight: 400;
+  color: #000;
+}
+.courses .resume__footer {
+  display: flex;
+  justify-content: flex-start !important;
+}
+
+.resume__item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.similar-resume .resume__item {
+  margin-right: 24px;
+  margin-bottom: 0;
+}
+.similar-resume .resume__icon {
+  position: unset;
+}
+.resume__icon {
+  width: 40px;
+  height: 40px;
+  background: #F4F6F9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  min-width: 40px;
+}
+.similar-resume .resume__item__text {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.resume__item__text {
+  flex: 1;
+}
+.resumes .similar-resume .resume__item__text h4 {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  margin-bottom: 4px;
+}
+.resumes .similar-resume .resume__item__text p {
+  font-size: 12px;
+  margin-bottom: 0 !important;
+}
+.resumes .similar-resume .resume__item:last-child {
+  margin-right: 100px;
+}
+
+#like{
+  display: none;
+}
+
+
+@media only screen and (max-width: 560px)  {
+
+  .nsp_top li:after {
+    position: relative;
+    float: right;
+    content: "|";
+    font-weight: 500;
+    color: #fff;
+    font-size: 14px;
+    margin: 0 16px !important;
+}
 }
