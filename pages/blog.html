@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog</title>
+    <link rel="stylesheet" href="../assets/styles/font.css">
+    <link rel="stylesheet" href="../assets/styles/main.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body id="body">
+     <!-- Login form Modal start-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content ">
+        <div class="modal-header">
+            <div class="popup__head__text text-center">
+                <h3>Hesabınıza daxil olun</h3>
+                <p>
+                Xoş gəlmişsiniz!
+                </p>
+                </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="popup__form__social">
+                <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;redirect_uri=https%3A%2F%2Fwww.hellojob.az%2Fuser-login%2Fgoogle_verify&amp;client_id=36186815782-e8dkfbottlq01ioglfqg9fq49hkepvec.apps.googleusercontent.com&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&amp;access_type=offline&amp;approval_prompt=force" class="btn" target="_blank">
+                <img loading="lazy" src="https://www.hellojob.az/content/assets/images/resume/svg-icons/google.svg" alt="">
+                Google ilə daxil ol
+                </a>
+                <p class="login-agreement-text">
+                Hesab yaradaraq Hellojob.az vebsayt <a href="/page/qaydalar" target="_blank" style="color: #344054; text-decoration: underline; font-weight: 500;">qaydalarını</a> qəbul edirəm.
+                </p>
+                <span>və ya</span>
+                </div>
+
+                <form id="login_blank">
+                    <div class="popup__form">
+                    <div class="form-group">
+                    <label for="">E-poçt</label>
+                    <input type="email" name="email" id="loginEmail" placeholder="E-poçtunuzu yazın" class="form-control">
+                    </div>
+                    <div class="form-group">
+                    <label for="">Şifrə</label>
+                    <input type="password" name="password" id="loginPassword" placeholder="••••••••" class="form-control">
+                    </div>
+                    <input type="hidden" name="recaptcha_login" id="recaptchaLogin">
+                    </div>
+                    <div class="popup__tools">
+                    <div class="form-group form-group--checkbox">
+                    <input type="checkbox" name="save_me"  id="save_pass">
+                    <label for="save_pass">Yadda saxla</label>
+                    </div>
+                    <a href="#forgot-password" class="regs_bopup_open" data-effect="mfp-zoom-in">Şifrəni unutmuşam</a>
+                    </div>
+                    <p id="error-login" class="popup__error-msg text-danger mb-1"></p>
+                    <div class="popup__btns">
+                    <button type="submit" class="btn" id="login_btn">Daxil ol</button>
+                    <a href="#registration_popup" class="register-btn btn btn-transparent register-acc regs_bopup_open" data-effect="mfp-zoom-in">Qeydiyyatdan keç</a>
+                    </div>
+                    </form>
+        </div>
+      
+      </div>
+      <div class="modal-content-register">
+        <div class="modal-header">
+            <div class="popup__head__text text-center">
+                <h3>Qeydiyyatdan keç</h3>
+                </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+                <form id="login_blank">
+                    <div class="popup__form">
+                        <div class="form-group">
+                        <label for="">Adınız*</label>
+                        <input type="text" id="reg_name" name="firstname" value="" placeholder="Adınızı daxil edin" class="form-control">
+                        </div>
+                        <div class="form-group">
+                        <label for="">E-poçt*</label>
+                        <input type="email" id="reg_email" name="email" value="" placeholder="E-poçtunuzu yazın" class="form-control">
+                        </div>
+                        <div class="form-group">
+                        <label for="">Şifrə*</label>
+                        <input type="password" id="reg_password" name="password" placeholder="••••••••" class="form-control">
+                        </div>
+                        <div class="form-group">
+                        <label for="">Şifrə təkrar*</label>
+                        <input type="password" id="reg_password_again" name="password_again" placeholder="••••••••" class="form-control">
+                        </div>
+                        </div>
+                    <div class="popup__tools">
+                        <div class="form-group form-group--checkbox" style="display: -webkit-box;">
+                            <input type="checkbox" name="register_agreement" class="form-control" id="register_agreement">
+                            
+                            <label for="register_agreement">Hesab yaradaraq Hellojob.az vebsayt <a href="/page/qaydalar" target="_blank" style="color: #344054; text-decoration: underline; font-weight: 500;">qaydalarını</a> qəbul edirəm.</label>
+                            </div>
+                    </div>
+                    <!--<p id="error-register" class="popup__error-msg text-danger">Qaydalar qəbul edilməyib.</p>-->
+                    <div class="popup__btns">
+                        <a href="javascript:" class="btn" id="registerSubmit">Qeydiyyat ol</a>
+                        <a href="#login-popup2" class="loginac btn btn-transparent register-acc regs_bopup_open">Giriş səhifəsi</a>
+                        </div>
+                    </form>
+        </div>
+      
+      </div>
+
+      
+    </div>
+  </div>
+ 
+    <!-- login Form Modal end -->
+
+   <!-- Header start section -->
+    <header class="full-header">
+     <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-lg-3  header-logo">
+                    <img id="menu_open" class="menu_open" src="../assets/icons/menu_open_night.svg" alt="">
+                    <a href="/pages/index.html" class="logo">
+                        <span class="d-none">HelloJob.az</span>
+                        <img src="../assets/images/logo/logo.svg" class="light-logo" alt="">
+                        <img src="../assets/images/logo/night_mode_logo.svg" class="night-logo" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-9  header_btns">
+                    <a href="./login.html" class="login-btn popup-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Sayta daxil ol
+                    </a>
+
+                    <div class="elan_yerlesdir_button_hover">
+                        <a href="./elan-yerlesdir-form.html" class="elan_yerlesdir" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        Elan yerləşdir </a>
+                        </div>
+
+                        <a href="./wishlist.html" class="wishlist">
+                            <span class="d-none">Wishlist</span>
+                            <img class="heart-img" src="../assets/icons/heart.svg" alt="">
+                            </a>
+                            <!-- <a href="" id="night_moon" class="night mode_btn" style="display: inline-block;" >
+                                <img class="moon-img" src="../assets/icons/moon.svg" alt="">
+                            </a>
+                            <a href="" id="light_sun"  class="light mode_btn" style="display: none;" >
+
+                                <img class="sun-img" src="../assets/icons/sun.svg" alt="">
+                            </a> -->
+                            <a href="" class="evening mode_btn">
+
+                            </a>
+                    
+                </div>
+            </div>
+        </div>
+     </div>
+    </header>
+   <!-- Header end section -->
+
+   <!-- Sidebarmenu start -->
+   <div class="sidebar">
+    <div class="logo-sidebar">
+        <img src="../assets/images/logo/logo.svg" alt="Logo">
+           <a class="baglama-btn btn-primary" href="">
+            <i class="fa-solid fa-xmark"></i>
+           </a>
+    </div>
+    <div class="menu">
+        <div class="elan_yerlesdir_sidebar">
+            <a href="./elan-yerlesdir-form.html" class="elan_yerlesdir-1"class="elan_yerlesdir" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  >
+                <i class="fa-solid fa-circle-plus"></i>
+            Elan yerləşdir </a>
+            </div>
+
+           <div class="sayta_daxil_ol_sidebar">
+            <a href="./login.html" class="login-btn_sidebar popup-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                Sayta daxil ol
+            </a>
+           </div>
+
+    </div>
+    <div class="options">
+        <a href=""><p>Butun vakansiyalar</p></a>
+        <hr>
+         <a href=""><p>Secilmisler</p></a> 
+        <hr>
+        <a href=""><p>Sirketler</p></a>
+        <hr>
+        <a href=""><p>Bloqlar</p></a>
+        <hr>
+        <a href=""><p>Qaydalar</p></a>
+        <hr>
+        <a href=""><p>saytda reklam</p></a>
+    </div>
+</div>
+   <!-- Sidebarmenu end -->
+
+<main>
+
+    <div class="breadcrumbs-new pb-0">
+        <a href="/">Əsas səhifə</a>
+        <span>/</span>
+        <a href="/blog/">Bloqlar</a>
+        </div>
+        
+        
+      <div class="page-title-center-container">
+            <h2 class="page-title">Bloqlar</h2>
+      </div>
+
+
+      <div class="section-component">
+        <div class="container">
+            <div class="sc-title-container">
+                <h4 class="sc-title">Son bloq yazıları</h4>
+                </div>
+                <div class="last-blog-cards">
+                <a href="/post/it-sahesi-ucun-mutexessisler-musahibeye-nece-hazirlasmalidir" class="new-blog-item big-blog-item">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2023/12/21/65842cb3d0cb4-EznFy-4Ml8PVskp.png">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">21 Dekabr 2023</span>
+                <h4 class="nbi-title">
+                İT sahəsi üçün mütəxəssislər müsahibəyə necə hazırlaşmalıdır? <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                İT sahəsi üçün mütəxəssislər müsa ... </div>
+                </div>
+                </a>
+                <a href="/post/hr-mutexessisleri-cv-de-neye-diqqet-yetirirler" class="new-blog-item horizontal-blog-item">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2023/12/19/65814d3416426-v60yOBnW048Re8_.png">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">19 Dekabr 2023</span>
+                <h4 class="nbi-title">
+                HR mütəxəssisləri CV-də nəyə diqqət yetirirlər? <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                HR mütəxəssisləri CV-də nəyə diqq ... </div>
+                </div>
+                </a>
+                <a href="/post/reqemsal-marketinq-mutexessisi-kimdir-babaxan-melikli" class="new-blog-item horizontal-blog-item">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2023/11/26/65626537d2b4d-fnBBl7ZY-TsSL4V.jpg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">26 Noyabr 2023</span>
+                <h4 class="nbi-title">
+                Rəqəmsal marketinq mütəxəssisi kimdir? - Babaxan Məlikli <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Rəqəmsal marketinq mütəxəssisi ki ... </div>
+                </div>
+                </a>
+                </div>
+        </div>
+        </div>
+
+        <div class="section-component all-blogs-container">
+           <div class="container">
+            <div class="sc-title-container">
+                <h4 class="sc-title">Bütün yazılar</h4>
+                </div>
+                <div class="all-blog-cards">
+                <a href="/post/dunyada-movcud-beyin-kocu" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2023/10/03/6512c2c72c5bc-gyRHzN5oJBUPozl.jpeg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">26 Sentyabr 2023</span>
+                <h4 class="nbi-title">
+                Dünyada mövcud beyin köçü <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Dünyada mövcud beyin köçü </div>
+                </div>
+                </a>
+                <a href="/post/zeif-cehetleriniz-nelerdir-sualina-nece-cavab-vere-bilersiniz" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2023/01/26/63d21cc0a8217-Ybzq9d43uui878m.jpg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">26 Yanvar 2023</span>
+                <h4 class="nbi-title">
+                “Zəif cəhətləriniz nələrdir?” sualına necə cavab verə bilərsiniz <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                “Zəif cəhətləriniz nələrdir?” sua ... </div>
+                </div>
+                </a>
+                <a href="/post/bazar-ertesi-sendromu" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2023/01/25/63ce7b5a91957-hXPnlGeeB33-j4T.jpg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">23 Yanvar 2023</span>
+                <h4 class="nbi-title">
+                Bazar ertəsi sendromu <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Bazar ertəsi sendromu </div>
+                </div>
+                </a>
+                <a href="/post/en-yaxsi-namizedler-musahibeden-sonra-niye-yoxa-cixir" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2023/01/18/63c7cd2e34152-ahSjTO4632ql0tL.jpg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">18 Yanvar 2023</span>
+                <h4 class="nbi-title">
+                Ən yaxşı namizədlər müsahibədən sonra niyə yoxa çıxır?
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Ən yaxşı namizədlər müsahibədən s ... </div>
+                </div>
+                </a>
+                <a href="/post/hr-ucun-kpi-hansini-secmek-nece-heyata-kecirmek-ve-nece-reqemsallasdirmaq" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2023/01/16/63c13e4f7efb9-3e1Fx094FR9_kr0.png">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">12 Yanvar 2023</span>
+                <h4 class="nbi-title">
+                HR üçün KPI: hansını seçmək, necə həyata keçirmək və necə rəqəmsallaşdırmaq <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                HR üçün KPI: hansını seçmək, necə ... </div>
+                </div>
+                </a>
+                <a href="/post/evden-islemeyin-5-cetin-terefi-ve-basa-cixmanin-yollari" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2023/01/13/63c149d73c00e-0lyaX1bx3OcYQ65.jpg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">12 Yanvar 2023</span>
+                <h4 class="nbi-title">
+                Evdən işləməyin çətin 5 tərəfi və başa çıxmanın yolları <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Evdən işləməyin 5 çətin tərəfi və ... </div>
+                </div>
+                </a>
+                <a href="/post/kontent-menecer-kimdir" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2022/09/21/6329a8f316303-FxMfQC5GpHTcX5B.png">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">20 Sentyabr 2022</span>
+                <h4 class="nbi-title">
+                Kontent menecer kimdir? <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Kontent menecer kimdir? </div>
+                </div>
+                </a>
+                <a href="/post/art-direktor-kimdir" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2022/09/19/63281caf8ecf7-CkEiq_VGlV9t3c7.png">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">19 Sentyabr 2022</span>
+                <h4 class="nbi-title">
+                Art direktor kimdir? <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Art direktor kimdir? </div>
+                </div>
+                </a>
+                <a href="/post/digital-marketinq-mutexessisi-kimdir" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2022/09/05/6315be9a7bea4-4uHSWs185N4dDZm.jpg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">05 Sentyabr 2022</span>
+                <h4 class="nbi-title">
+                Rəqəmsal marketinq mütəxəssisi kimdir? <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Digital marketinq mütəxəssisi kim ... </div>
+                </div>
+                </a>
+                <a href="/post/satis-meneceri-kimdir" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2022/09/03/6313719673f96-2Gxm6mnnGHa5i_M.jpg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">03 Sentyabr 2022</span>
+                <h4 class="nbi-title">
+                Satış meneceri kimdir? <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Satış meneceri kimdir? </div>
+                </div>
+                </a>
+                <a href="/post/data-analitikin-is-hekayesi" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2022/09/03/631307c19c272-GpOy4d48PZ61B8J.jpg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">03 Sentyabr 2022</span>
+                <h4 class="nbi-title">
+                Data analitik kimdir? <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Data analitikin iş hekayəsi </div>
+                </div>
+                </a>
+                <a href="/post/dizayn-teqaud-proqrami" class="new-blog-item ">
+                <div class="nbi-image">
+                <img loading="lazy" src="https://www.hellojob.az/uploads/blog/min/2022/09/02/6311d644ea0bc-St6Z_4iRaYVH1vT.jpeg">
+                </div>
+                <div class="nbi-information">
+                <span class="nbi-time">02 Sentyabr 2022</span>
+                <h4 class="nbi-title">
+                Dizayn təqaüd proqramı <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="#101828" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+                </h4>
+                <div class="n-blog-content">
+                Dizayn təqaüd proqramı </div>
+                </div>
+                </a>
+                </div>
+           </div>
+            </div>
+
+          
+
+            <ul class="custom-pagination custom-pagination-blog mb-4">
+                <li>
+                    <a href="#" class="disabled">
+                        <i class="fa-solid fa-arrow-left"></i>
+                    </a>
+                    </li>
+                 <li><a class="active" href="?page=1">1</a></li>
+                  <li><a href="?page=2">2</a></li> 
+                  <li><a href="?page=3">3</a></li>
+                  <li class=""><a>...</a></li>
+                  <li><a class="rotate-pagination-item" aria-label="Next" href="?page=2"><i class="fa-solid fa-arrow-right"></i></a></li>
+                </ul>
+                 </div>
+
+
+
+</main>
+   <!-- Footer start -->
+   <footer class="footer full">
+    <div class="container">
+    <div class="footer__top">
+    <div class="row">
+    <div class="col-md-4">
+    <a href="/" class="footer__logo">
+    <img loading="lazy" src="../assets/images/logo/night_mode_logo.svg" alt="">
+    <p>Yeni işinizi qarşılayın</p>
+    </a>
+    </div>
+    <div class="col-md-2">
+    <div class="footer__menu">
+    <a href="#" class="footer__head">
+    Hellojob.az
+    </a>
+    <ul>
+    <li>
+    <a href="/sirketler">Şirkətlər</a>
+    </li>
+    <li>
+    <a href="/blog">Bloq</a>
+    </li>
+    <li>
+    <a href="/page/qaydalar">Qaydalar</a>
+    </li>
+    <li>
+    <a href="/page/saytda-reklam">Saytda reklam</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-md-2">
+    <div class="footer__menu">
+    <a href="#" class="footer__head">
+    Elanlar
+    </a>
+    <ul>
+    <li>
+    <a href="/vakansiyalar">Bütün vakansiyalar</a>
+    </li>
+    <li>
+    <a href="/resumes/all">Bütün CV-lər</a>
+    </li>
+    <li>
+    <a href="/item/add">Elan yerləşdir</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    <div class="col-md-2">
+    <div class="footer__menu">
+    <a href="#" class="footer__head">
+    Elan növləri
+    </a>
+    <ul>
+    <li>
+    <a href="/vakansiyalar/freelance">Frilans işlər</a>
+    </li>
+    <li>
+    <a href="/vakansiyalar/part-time">Part-time işlər</a>
+    </li>
+    <li>
+    <a href="/vakansiyalar/internships">Təcrübə
+    proqramları</a>
+    </li>
+    <li>
+    <a href="/resumes/freelancer">Frilanserlər</a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+    <div class="footer__bottom">
+    <p>© 2019-2024 Hellodigital</p>
+    <ul class="footer__social">
+    <li>
+    <a href="https://www.instagram.com/hellojobaz">
+    <img loading="lazy" src="https://www.hellojob.az/content/assets//images/social/instagram.svg" alt="">
+    <span class="d-none">Instagram</span>
+    </a>
+    </li>
+    <li>
+    <a href="https://www.facebook.com/hellojobaz">
+    <img loading="lazy" src="https://www.hellojob.az/content/assets//images/social/facebook.svg" alt="">
+    <span class="d-none">Facebook</span>
+    </a>
+    </li>
+    <li>
+    <a href="https://www.linkedin.com/company/hellojobaz">
+    <img loading="lazy" src="https://www.hellojob.az/content/assets//images/social/linkedin.svg" alt="">
+    <span class="d-none">Linkedin</span>
+    </a>
+    </li>
+    <li>
+    <a href="https://t.me/hellojobaz">
+    <img loading="lazy" src="https://www.hellojob.az/content/assets//images/social/telegram.svg" alt="">
+    <span class="d-none">Telegram</span>
+    </a>
+    </li>
+    </ul>
+    </div>
+    </div>
+    </footer>
+   <!-- Footer end  -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+   <script src="../assets/js/blog.js"></script>
+</body>
+</html>

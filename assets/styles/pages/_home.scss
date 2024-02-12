@@ -28,7 +28,29 @@ color: #fff;
     color: #fff;
 }
 
+.dark .nbi-title{
+    color: #fff !important;
+}
 
+.dark .n-blog-content{
+    color: #fff !important;
+}
+
+.dark .page-title{
+    color: #fff !important;
+}
+
+.dark .bi_desc  p span{
+    color: #fff !important;
+}
+
+.dark .bi_desc ul li span{
+    color: #fff !important;
+}
+
+.dark .error_note p{
+    color: #fff !important;
+}
 .menu_open_night{
     display: none;
 }
@@ -261,6 +283,7 @@ color: #fff;
     font-weight: 500;
     font-size: 14px;
     line-height: 17px;
+    height: 90px;
 
     .card_like{
         position: unset;
@@ -273,6 +296,7 @@ color: #fff;
     align-items: center;
     justify-content: center;
     z-index: 9;
+    margin-top: 25px;
     cursor: pointer;
 
     i{

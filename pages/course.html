@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Courses</title>
+    <link rel="stylesheet" href="../assets/styles/font.css">
+    <link rel="stylesheet" href="../assets/styles/main.css">        
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body id="body"> 
+
+         <!-- Login form Modal start-->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content ">
+        <div class="modal-header">
+            <div class="popup__head__text text-center">
+                <h3>Hesabınıza daxil olun</h3>
+                <p>
+                Xoş gəlmişsiniz!
+                </p>
+                </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="popup__form__social">
+                <a href="https://accounts.google.com/o/oauth2/auth?response_type=code&amp;redirect_uri=https%3A%2F%2Fwww.hellojob.az%2Fuser-login%2Fgoogle_verify&amp;client_id=36186815782-e8dkfbottlq01ioglfqg9fq49hkepvec.apps.googleusercontent.com&amp;scope=https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.profile+https%3A%2F%2Fwww.googleapis.com%2Fauth%2Fuserinfo.email&amp;access_type=offline&amp;approval_prompt=force" class="btn" target="_blank">
+                <img loading="lazy" src="https://www.hellojob.az/content/assets/images/resume/svg-icons/google.svg" alt="">
+                Google ilə daxil ol
+                </a>
+                <p class="login-agreement-text">
+                Hesab yaradaraq Hellojob.az vebsayt <a href="/page/qaydalar" target="_blank" style="color: #344054; text-decoration: underline; font-weight: 500;">qaydalarını</a> qəbul edirəm.
+                </p>
+                <span>və ya</span>
+                </div>
+
+                <form id="login_blank">
+                    <div class="popup__form">
+                    <div class="form-group">
+                    <label for="">E-poçt</label>
+                    <input type="email" name="email" id="loginEmail" placeholder="E-poçtunuzu yazın" class="form-control">
+                    </div>
+                    <div class="form-group">
+                    <label for="">Şifrə</label>
+                    <input type="password" name="password" id="loginPassword" placeholder="••••••••" class="form-control">
+                    </div>
+                    <input type="hidden" name="recaptcha_login" id="recaptchaLogin">
+                    </div>
+                    <div class="popup__tools">
+                    <div class="form-group form-group--checkbox">
+                    <input type="checkbox" name="save_me"  id="save_pass">
+                    <label for="save_pass">Yadda saxla</label>
+                    </div>
+                    <a href="#forgot-password" class="regs_bopup_open" data-effect="mfp-zoom-in">Şifrəni unutmuşam</a>
+                    </div>
+                    <p id="error-login" class="popup__error-msg text-danger mb-1"></p>
+                    <div class="popup__btns">
+                    <button type="submit" class="btn" id="login_btn">Daxil ol</button>
+                    <a href="#registration_popup" class="register-btn btn btn-transparent register-acc regs_bopup_open" data-effect="mfp-zoom-in">Qeydiyyatdan keç</a>
+                    </div>
+                    </form>
+        </div>
+      
+      </div>
+      <div class="modal-content-register">
+        <div class="modal-header">
+            <div class="popup__head__text text-center">
+                <h3>Qeydiyyatdan keç</h3>
+                </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+                <form id="login_blank">
+                    <div class="popup__form">
+                        <div class="form-group">
+                        <label for="">Adınız*</label>
+                        <input type="text" id="reg_name" name="firstname" value="" placeholder="Adınızı daxil edin" class="form-control">
+                        </div>
+                        <div class="form-group">
+                        <label for="">E-poçt*</label>
+                        <input type="email" id="reg_email" name="email" value="" placeholder="E-poçtunuzu yazın" class="form-control">
+                        </div>
+                        <div class="form-group">
+                        <label for="">Şifrə*</label>
+                        <input type="password" id="reg_password" name="password" placeholder="••••••••" class="form-control">
+                        </div>
+                        <div class="form-group">
+                        <label for="">Şifrə təkrar*</label>
+                        <input type="password" id="reg_password_again" name="password_again" placeholder="••••••••" class="form-control">
+                        </div>
+                        </div>
+                    <div class="popup__tools">
+                        <div class="form-group form-group--checkbox" style="display: -webkit-box;">
+                            <input type="checkbox" name="register_agreement" class="form-control" id="register_agreement">
+                            
+                            <label for="register_agreement">Hesab yaradaraq Hellojob.az vebsayt <a href="/page/qaydalar" target="_blank" style="color: #344054; text-decoration: underline; font-weight: 500;">qaydalarını</a> qəbul edirəm.</label>
+                            </div>
+                    </div>
+                    <!--<p id="error-register" class="popup__error-msg text-danger">Qaydalar qəbul edilməyib.</p>-->
+                    <div class="popup__btns">
+                        <a href="javascript:" class="btn" id="registerSubmit">Qeydiyyat ol</a>
+                        <a href="#login-popup2" class="loginac btn btn-transparent register-acc regs_bopup_open">Giriş səhifəsi</a>
+                        </div>
+                    </form>
+        </div>
+      
+      </div>
+
+      
+    </div>
+  </div>
+ 
+    <!-- login Form Modal end -->
+
+   <!-- Header start section -->
+    <header class="full-header">
+     <div class="container">
+        <div class="col-md-12">
+            <div class="row">
+                <div class="col-lg-3  header-logo">
+                    <img id="menu_open" class="menu_open" src="../assets/icons/menu_open_night.svg" alt="">
+                    <a href="/pages/index.html" class="logo">
+                        <span class="d-none">HelloJob.az</span>
+                        <img src="../assets/images/logo/logo.svg" class="light-logo" alt="">
+                        <img src="../assets/images/logo/night_mode_logo.svg" class="night-logo" alt="">
+                    </a>
+                </div>
+                <div class="col-lg-9  header_btns">
+                    <a href="./login.html" class="login-btn popup-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        Sayta daxil ol
+                    </a>
+
+                    <div class="elan_yerlesdir_button_hover">
+                        <a href="./elan-yerlesdir-form.html" class="elan_yerlesdir" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <i class="fa-solid fa-circle-plus"></i>
+                        Elan yerləşdir </a>
+                        </div>
+
+                        <a href="./wishlist.html" class="wishlist">
+                            <span class="d-none">Wishlist</span>
+                            <img class="heart-img" src="../assets/icons/heart.svg" alt="">
+                            </a>
+                            <!-- <a href="" id="night_moon" class="night mode_btn" style="display: inline-block;" >
+                                <img class="moon-img" src="../assets/icons/moon.svg" alt="">
+                            </a>
+                            <a href="" id="light_sun"  class="light mode_btn" style="display: none;" >
+
+                                <img class="sun-img" src="../assets/icons/sun.svg" alt="">
+                            </a> -->
+                            <a href="" class="evening mode_btn">
+
+                            </a>
+                    
+                </div>
+            </div>
+        </div>
+     </div>
+    </header>
+   <!-- Header end section -->
+
+   <!-- Sidebarmenu start -->
+   <div class="sidebar">
+    <div class="logo-sidebar">
+        <img src="../assets/images/logo/logo.svg" alt="Logo">
+           <a class="baglama-btn btn-primary" href="">
+            <i class="fa-solid fa-xmark"></i>
+           </a>
+    </div>
+    <div class="menu">
+        <div class="elan_yerlesdir_sidebar">
+            <a href="./elan-yerlesdir-form.html" class="elan_yerlesdir-1"class="elan_yerlesdir" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"  >
+                <i class="fa-solid fa-circle-plus"></i>
+            Elan yerləşdir </a>
+            </div>
+
+           <div class="sayta_daxil_ol_sidebar">
+            <a href="./login.html" class="login-btn_sidebar popup-btn" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                Sayta daxil ol
+            </a>
+           </div>
+
+    </div>
+    <div class="options">
+        <a href=""><p>Butun vakansiyalar</p></a>
+        <hr>
+         <a href=""><p>Secilmisler</p></a> 
+        <hr>
+        <a href=""><p>Sirketler</p></a>
+        <hr>
+        <a href=""><p>Bloqlar</p></a>
+        <hr>
+        <a href=""><p>Qaydalar</p></a>
+        <hr>
+        <a href=""><p>saytda reklam</p></a>
+    </div>
+</div>
+   <!-- Sidebarmenu end -->
+
+   <main>
+    <div class="nsp_course">
+        <div class="container">
+            <div class="row ">
+            
+            <div class="nsp_top col-md-12">
+            <ul>
+            <li >
+            <a href="/">İş elanları</a>
+            </li>
+            <li>
+            <a href="./resume.html">CV-lər</a>
+            </li>
+            <li class="active">
+            <a href="./course.html">Kurslar</a>
+            </li>
+            </ul>
+            </div>
+        </div>
+        </div> 
+    </div>
+
+
+    <section class="resumes-course courses">
+        <div class="container">
+            <div class="resumes-course__head">
+                <div class="w-100 d-none d-md-flex align-items-center justify-content-between">
+                    <h3 class="resumes-course__title">kurslar</h3>
+                </div>
+                <div class="resumes-course__head__btns--mobile d-md-none">
+                    <a href="#" class="btn btn-sort">
+                        Sırala
+                        <img loading="lazy" src="https://www.hellojob.az/content/assets/images/sort.svg" alt>
+                    </a>
+                    <a href="#" class="btn btn-filters">
+                        Filtrlə
+                        <img loading="lazy" src="https://www.hellojob.az/content/assets/images/filter.svg" alt>
+                        <span id="filters_count"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="resumes-course__sort d-md-none">
+                <h4>Sırala</h4>
+                <ul>
+                    <li>
+                        <input type="radio" class="d-none" value="retire" name="sort" id="sort1" checked>
+                        <label for="sort1">Öncə təqaüdlü proqramlar</label>
+                    </li>
+                    <li>
+                        <input type="radio" class="d-none" value="time_asc" name="sort" id="sort2">
+                        <label for="sort2">Müddətə görə (az)</label>
+                    </li>
+                    <li>
+                        <input type="radio" class="d-none" value="time_desc" name="sort" id="sort3">
+                        <label for="sort3">Müddətə görə (çox)</label>
+                    </li>
+                    <li>
+                        <input type="radio" class="d-none" value="level_asc" name="sort" id="sort4">
+                        <label for="sort4">Səviyyəyə görə (aşağı)</label>
+                    </li>
+                    <li>
+                        <input type="radio" class="d-none" value="level_desc" name="sort" id="sort5">
+                        <label for="sort5">Səviyyəyə görə (yüksək)</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="resumes-course__filters" id="resume_filters">
+                        <div class="resumes-course__filters__head  d-md-none">
+                            <h4>Filterlə</h4>
+                            <a href="#" class="resumes-course__filters__close">
+                                <img loading="lazy" src="https://www.hellojob.az/content/assets/images/close.svg" alt>
+                            </a>
+                        </div>
+                        <div class="resumes-course__filters__item resumes-course__filters__item--profession">
+                            <h3 class="resumes-course__title">İxtİsas</h3>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-group-search" placeholder="İxtisas axtar">
+                            </div>
+                            <ul class="resumes-course__filters__profession resumes-course__filters__checkbox">
+                                <li>
+                                    <input type="checkbox" value="2" class="form-control d-none" id="category2"
+                                        name="category">
+                                    <label for="category2">
+                                        Dizayn </label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="3" class="form-control d-none" id="category3"
+                                        name="category">
+                                    <label for="category3">
+                                        Proqramlaşdırma </label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="4" class="form-control d-none" id="category4"
+                                        name="category">
+                                    <label for="category4">
+                                        Marketinq </label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="5" class="form-control d-none" id="category5"
+                                        name="category">
+                                    <label for="category5">
+                                        Satış </label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="7" class="form-control d-none" id="category7"
+                                        name="category">
+                                    <label for="category7">
+                                        Mühasibatlıq və vergi </label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="9" class="form-control d-none" id="category9"
+                                        name="category">
+                                    <label for="category9">
+                                        Qida və içki </label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="resumes-course__filters__item resumes-course__filters__item--profession">
+                            <h3 class="resumes-course__title">Şirkət axtar</h3>
+                            <div class="form-group">
+                                <input type="text" class="form-control form-group-search" placeholder="Şirkət axtar">
+                            </div>
+                            <ul class="resumes-course__filters__profession resumes-course__filters__checkbox">
+                                <li>
+                                    <input type="checkbox" value="989" class="form-control d-none" id="company989"
+                                        name="company">
+                                    <label for="company989">Vision Academy</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="1681" class="form-control d-none" id="company1681"
+                                        name="company">
+                                    <label for="company1681">Dövlət Məşğulluq Agentliyi</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="resumes-course__filters__item resumes-course__filters__item--profession">
+                            <h3 class="resumes-course__title">TəQAÜD İmkanı</h3>
+                            <ul class="resumes-course__filters__checkbox">
+                                <li>
+                                    <input type="checkbox" value="1" class="form-control d-none" id="retire_1"
+                                        name="retire">
+                                    <label for="retire_1">Var</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="resumes-course__filters__item resumes-course__filters__item--profession">
+                            <h3 class="resumes-course__title">QIYMƏT</h3>
+                            <ul class="resumes-course__filters__checkbox">
+                                <li>
+                                    <input type="checkbox" value="1" class="form-control d-none" id="paid" name="paid">
+                                    <label for="paid">Ödənişsiz kurslar</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="resumes-course__filters__item resumes-course__filters__item--profession">
+                            <h3 class="resumes-course__title">Dərs REJİMİ</h3>
+                            <ul class="resumes-course__filters__checkbox">
+                                <li>
+                                    <input type="checkbox" value="1" class="form-control d-none" id="mode_1"
+                                        name="mode">
+                                    <label for="mode_1">Online</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="0" class="form-control d-none" id="mode_0"
+                                        name="mode">
+                                    <label for="mode_0">Sinifdə</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="resumes-course__filters__item">
+                            <h3 class="resumes-course__title">Müddət</h3>
+                            <div class="form-group">
+                                <input class="range-input d-none" type="text" id="time" readonly>
+                                <div id="slider-range"></div>
+                                <div class="resumes-course__filters__interval">
+                                    <span>1 ay</span>
+                                    <span>24 ay</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="resumes-course__filters__item resumes-course__filters__item--profession">
+                            <h3 class="resumes-course__title">SERTİFİKAT</h3>
+                            <ul class="resumes-course__filters__checkbox">
+                                <li>
+                                    <input type="checkbox" value="1" class="form-control d-none" id="certificate_1"
+                                        name="certificate">
+                                    <label for="certificate_1">Verilir</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="resumes-course__filters__item resumes-course__filters__item--profession">
+                            <h3 class="resumes-course__title">SƏVİYYƏ</h3>
+                            <ul class="resumes-course__filters__checkbox">
+                                <li>
+                                    <input type="checkbox" value="1" class="form-control d-none" id="level_1"
+                                        name="level">
+                                    <label for="level_1">Başlanğıc</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="2" class="form-control d-none" id="level_2"
+                                        name="level">
+                                    <label for="level_2">Orta</label>
+                                </li>
+                                <li>
+                                    <input type="checkbox" value="3" class="form-control d-none" id="level_3"
+                                        name="level">
+                                    <label for="level_3">Yüksək</label>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="resumes-course__filters__btns">
+                            <a href="#" class="btn" id="search_filters">Axtar <span id="count_items"></span></a>
+                            <a href="#" class="btn btn-grey" id="clear_filters">Təmizlə</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="d-flex align-items-center justify-content-center justify-content-md-between mb-23">
+                        <div class="d-md-flex text-center">
+                            <p class="cv_count">Axtarışınıza uyğun <span id="count_items_head"></span> kurs tapıldı
+                            </p>
+                            <a href="#" class="cv_count ml-md-3 text-dark" id="clear_filters2">Filtrləri təmizlə</a>
+                        </div>
+                        <div class="form-group d-none  mb-0 d-md-flex align-items-center">
+                            <label for>Sırala</label>
+                            <select name="sort2" id="sort" class="form-control">
+                                <option>Seçin</option>
+                                <option value="retire">Öncə təqaüdlü proqramlar</option>
+                                <option value="time_asc">Müddətə görə (az)</option>
+                                <option value="time_desc">Müddətə görə (çox)</option>
+                                <option value="level_asc">Səviyyəyə görə (aşağı)</option>
+                                <option value="level_desc">Səviyyəyə görə (yüksək)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="similar-resume">
+                    </div>
+                    <div class="show_more  d-none "></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+   </main>
+
+    <!-- Footer start -->
+    <footer class="footer full">
+        <div class="container">
+        <div class="footer__top">
+        <div class="row">
+        <div class="col-md-4">
+        <a href="/" class="footer__logo">
+        <img loading="lazy" src="../assets/images/logo/night_mode_logo.svg" alt="">
+        <p>Yeni işinizi qarşılayın</p>
+        </a>
+        </div>
+        <div class="col-md-2">
+        <div class="footer__menu">
+        <a href="#" class="footer__head">
+        Hellojob.az
+        </a>
+        <ul>
+        <li>
+        <a href="/sirketler">Şirkətlər</a>
+        </li>
+        <li>
+        <a href="/blog">Bloq</a>
+        </li>
+        <li>
+        <a href="/page/qaydalar">Qaydalar</a>
+        </li>
+        <li>
+        <a href="/page/saytda-reklam">Saytda reklam</a>
+        </li>
+        </ul>
+        </div>
+        </div>
+        <div class="col-md-2">
+        <div class="footer__menu">
+        <a href="#" class="footer__head">
+        Elanlar
+        </a>
+        <ul>
+        <li>
+        <a href="/vakansiyalar">Bütün vakansiyalar</a>
+        </li>
+        <li>
+        <a href="/resumes-course/all">Bütün CV-lər</a>
+        </li>
+        <li>
+        <a href="/item/add">Elan yerləşdir</a>
+        </li>
+        </ul>
+        </div>
+        </div>
+        <div class="col-md-2">
+        <div class="footer__menu">
+        <a href="#" class="footer__head">
+        Elan növləri
+        </a>
+        <ul>
+        <li>
+        <a href="/vakansiyalar/freelance">Frilans işlər</a>
+        </li>
+        <li>
+        <a href="/vakansiyalar/part-time">Part-time işlər</a>
+        </li>
+        <li>
+        <a href="/vakansiyalar/internships">Təcrübə
+        proqramları</a>
+        </li>
+        <li>
+        <a href="/resumes-course/freelancer">Frilanserlər</a>
+        </li>
+        </ul>
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="footer__bottom">
+        <p>© 2019-2024 Hellodigital</p>
+        <ul class="footer__social">
+        <li>
+        <a href="https://www.instagram.com/hellojobaz">
+        <img loading="lazy" src="https://www.hellojob.az/content/assets//images/social/instagram.svg" alt="">
+        <span class="d-none">Instagram</span>
+        </a>
+        </li>
+        <li>
+        <a href="https://www.facebook.com/hellojobaz">
+        <img loading="lazy" src="https://www.hellojob.az/content/assets//images/social/facebook.svg" alt="">
+        <span class="d-none">Facebook</span>
+        </a>
+        </li>
+        <li>
+        <a href="https://www.linkedin.com/company/hellojobaz">
+        <img loading="lazy" src="https://www.hellojob.az/content/assets//images/social/linkedin.svg" alt="">
+        <span class="d-none">Linkedin</span>
+        </a>
+        </li>
+        <li>
+        <a href="https://t.me/hellojobaz">
+        <img loading="lazy" src="https://www.hellojob.az/content/assets//images/social/telegram.svg" alt="">
+        <span class="d-none">Telegram</span>
+        </a>
+        </li>
+        </ul>
+        </div>
+        </div>
+        </footer>
+       <!-- Footer end  -->
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>   <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+       <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+       <script src="../assets/js/course.js"></script>
+</body>
+</html>
