@@ -71,8 +71,6 @@ loginbtn.addEventListener("click",function (e) {
 })
 
 
-
-
 const likeIcons = document.querySelectorAll('#like');
 const unlikeIcons = document.querySelectorAll('#unlike');
 
@@ -91,55 +89,3 @@ unlikeIcons.forEach(unlikeIcon => {
         likeIcons[Array.from(unlikeIcons).indexOf(this)].style.display = 'inline-block';
     });
 });
-
-const filterClearButton = document.getElementById('clear_filters2');
-const filterClearButton2 = document.getElementById('clear_filters');
-
-filterClearButton.addEventListener('click', function(e) {
-  e.preventDefault()
-    document.getElementById('sort').selectedIndex = 0;
-    var checkboxes = document.querySelectorAll('.resumes__filters__checkbox input[type="checkbox"]');
-    checkboxes.forEach(function(checkbox) {
-        checkbox.checked = false;
-    });
-    const radioButtons = document.querySelectorAll('input[type="radio"][name="sort"]');
-    radioButtons.forEach(function(radioButton,index) {
-        radioButton.checked = false;
-        if (index === 0) {
-          radioButton.checked = true;
-      }
-    });
-});
-filterClearButton2.addEventListener('click', function(e) {
-  e.preventDefault()
-    document.getElementById('sort').selectedIndex = 0;
-    var checkboxes = document.querySelectorAll('.resumes__filters__checkbox input[type="checkbox"]');
-    checkboxes.forEach(function(checkbox) {
-        checkbox.checked = false;
-    });
-});
-
-
-var filterbtn=document.querySelector('.btn-filters')
-var closeButton=document.querySelector('.resumes__filters__close')
-var resumesFilter=document.querySelector('#resume_filters')
-var sortbtn=document.querySelector('.btn-sort')
-var resumesSort=document.querySelector('.resumes__sort')
-sortbtn.addEventListener('click',function(e){
-  e.preventDefault()
-  resumesSort.classList.toggle('resume-show')
-  })
-
-filterbtn.addEventListener('click',function(e){
-e.preventDefault()
-resumesFilter.style.opacity='1'
-resumesFilter.style.visibility='visible'
-})
-
-
-closeButton.addEventListener('click',function(e){
-e.preventDefault()
-resumesFilter.style.opacity='0'
-resumesFilter.style.visibility='hidden'
-})
-

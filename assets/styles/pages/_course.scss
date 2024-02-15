@@ -495,9 +495,13 @@ $blue:#2196F3;
       }
     }
   }
+  .resumes__filters{
+    display: block;
+  } 
 
   @media (max-width: 767px) {
     margin-top: 10px;
+
     .row {
       .col-md-3 {
         max-width: 100%;
@@ -575,7 +579,7 @@ $blue:#2196F3;
       box-shadow: 0px -5px 10px rgba(0, 0, 0, 0.05);
       border-radius: 8px 8px 0 0;
       position: fixed;
-      bottom: -100%;
+      bottom: 0%;
       left: 0;
       right: 0;
       z-index: 21;
@@ -865,4 +869,51 @@ $blue:#2196F3;
     font-size: 14px;
     margin: 0 16px !important;
 }
+
+.resume__header{
+  align-items: start !important;
+  flex-direction: column;
 }
+
+.resume__footer{
+  flex-direction: column;
+  gap: 16px;
+}
+
+.course_like {
+  position: absolute !important;
+  top: 50px;
+  right: 0;
+}
+
+.resume__block{
+  position: relative;
+}
+
+.resume__header__img{
+  width: 90px;
+  height: 90px;
+  margin-bottom: 10px;
+}
+
+.resume__header__name{
+  font-size: 16px !important;
+}
+.resume__item__text h4{
+  font-size: 14px;
+}
+.resume__item__text p{
+  font-size: 14px;
+}
+}
+
+.resume-show{
+opacity: 1 !important;
+visibility: visible !important;
+}
+
+.resumes__sort{
+  opacity: 0;
+  visibility: hidden;
+}
+
